@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<title>PDF Център</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+body { font-family: Arial; background:#0f0f0f; color:#fff; margin:0; padding:20px; }
+h1,h2 { text-align:center; margin-bottom:20px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:20px; }
+.item { background:#1c1c1c; padding:10px; border-radius:12px; text-align:center; }
+a { color:#4caf50; text-decoration:none; font-weight:bold; }
+button { display:block; margin:20px auto; padding:10px 15px; cursor:pointer; }
+</style>
+
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+</head>
+<body>
+
+<script>
+if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
+</script>
+
+<h1>📄 PDF Център</h1>
+<p style="text-align:center;">Качвайте и сваляйте PDF файлове</p>
+
+<!-- Upload бутон за PDF файлове -->
+<input type="hidden" role="uploadcare-uploader" id="uploader" data-public-key="demopublickey" data-multiple="true" data-accept="application/pdf" />
+
+<div class="grid" id="pdfGrid"></div>
+
+<button onclick="window.location.href='home.html'">🏠 Обратно към сайта</button>
+<button onclick="logout()">Изход</button>
+
+<script>
+const pdfGrid = document.getElementById("pdfGrid");
+const uploader = uploadcare.Widget('[role=uploadcare-uploader]');
+
+function logout(){
+  localStorage.removeItem("auth");
+  window.location.href="index.html";
+}
+
+// Добавяне на PDF линкове
+uploader.onUploadComplete(fileInfo=>{
+  const url = fileInfo.cdnUrl;
+  const name = fileInfo.name;
+  const html = `<div class="item"><a href="${url}" target="_blank" download>${name}</a></div>`;
+  pdfGrid.insertAdjacentHTML('beforeend', html);
+});
+</script>
+
+</body>
+</html>
