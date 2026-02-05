@@ -23,9 +23,9 @@ a { color:#4caf50; text-decoration:none; }
 if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
 </script>
 
-<h1>🎬 Моите файлове</h1>
+<h1>🎬 Моите файлове и плейлисти</h1>
 
-<!-- Uploadcare бутон за качване на файлове -->
+<!-- Uploadcare за качване на файлове -->
 <input type="hidden" role="uploadcare-uploader" id="uploader" data-public-key="demopublickey" data-multiple="true" />
 
 <div class="grid" id="mediaGrid"></div>
@@ -52,10 +52,20 @@ if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
   </div>
 </div>
 
-<!-- Бутон към movies.html -->
+<!-- Други плейлисти (пример) -->
+<h2>🎶 Други популярни плейлисти</h2>
+<div class="grid">
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed?listType=playlist&list=PLabc123XYZ" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Популярни хитове</p>
+  </div>
+</div>
+
+<!-- Кратък шорткът към страницата с филми -->
 <button onclick="window.location.href='movies.html'">🎬 Филми</button>
-<!-- Бутон към PDF страница -->
-<button onclick="window.location.href='pdfs.html'">📄 PDF Център</button>
+
 <!-- Logout -->
 <button onclick="logout()">Изход</button>
 
