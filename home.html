@@ -13,7 +13,6 @@ iframe, img, video { width:100%; border-radius:10px; }
 button { display:block; margin:20px auto; padding:10px 15px; cursor:pointer; }
 </style>
 
-<!-- Uploadcare widget -->
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 </head>
 <body>
@@ -23,19 +22,62 @@ if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
 </script>
 
 <h1>🎬 Моите файлове</h1>
-<!-- Upload бутон за видео/снимки/документи -->
+
+<!-- Uploadcare бутон за видео/снимки/документи -->
 <input type="hidden" role="uploadcare-uploader" id="uploader" data-public-key="demopublickey" data-multiple="true" />
 
 <div class="grid" id="mediaGrid"></div>
 
-<h2>📺 Плейлист</h2>
+<!-- 🟢 Основен плейлист – може да го изтриеш и замениш с нов код -->
+<h2>📺 Основен плейлист</h2>
 <div class="grid">
   <div class="playlist">
     <iframe height="360" 
             src="https://www.youtube.com/embed?listType=playlist&list=PLUX8MhkBknbkRPbMS695R0UDAHZ0-I6hB" 
             frameborder="0" allowfullscreen></iframe>
-    <p>Плейлист</p>
+    <p>Основен плейлист</p>
   </div>
+</div>
+
+<!-- 🎵 Допълнителен плейлист – Чалга хитове -->
+<h2>🎵 Чалга хитове</h2>
+<div class="grid">
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed?listType=playlist&list=PLzzpWpGIiFdpmpF9yaVQTTjBUgMBxitv-" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Chalga Hit Mix 2025</p>
+  </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed?listType=playlist&list=PLJ3U98LoPik_easedr8b6EtjkWjaBcaU0" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Best Chalga Hits (Retro & New)</p>
+  </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed/3yTaoUFfMZM" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Chalga Mix 2025 Non‑Stop</p>
+  </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed/aqnoOq-47m8" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Chalga Pop‑Folk Mix 2025</p>
+  </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed/Q7_A6TwjKlI" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>CHALGA POP FOLK MIX 2025</p>
+  </div>
+
 </div>
 
 <button onclick="window.location.href='pdfs.html'">📄 PDF Център</button>
