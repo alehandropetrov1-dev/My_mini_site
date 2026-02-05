@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<title>Частна платформа</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+body { font-family: Arial; background:#0f0f0f; color:#fff; margin:0; padding:20px; }
+h1,h2 { text-align:center; margin-bottom:20px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:20px; }
+.item, .playlist { background:#1c1c1c; padding:10px; border-radius:12px; text-align:center; }
+iframe, img, video { width:100%; border-radius:10px; }
+button { display:block; margin:20px auto; padding:10px 15px; cursor:pointer; }
+</style>
+
+<!-- Uploadcare widget -->
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+</head>
+<body>
+
+<script>
+// Проверка за login
+if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
+</script>
+
+<h1>🎬 Моите файлове</h1>
+
+<!-- Upload бутон -->
+<input type="hidden" role="uploadcare-uploader" id="uploader" data-public-key="demopublickey" data-multiple="true" />
+
+<div class="grid" id="mediaGrid">
+  <!-- Тук ще се показват файловете, които качваш -->
+</div>
+
+<h2>📺 Плейлист</h2>
+<div class="grid">
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed?listType=playlist&list=PLUX8MhkBknbkRPbMS695R0UDAHZ0-I6hB" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Плейлист</p>
+  </div>
+</div>
+
+<button onclick="logout()">Изход</button>
+
+<script>
+const mediaGrid = document.getElementById("mediaGrid");
+const uploader = uploadcare.Widget('[role=uploadcare-uploader]');
+
+function logout(){
+  localStorage.removeItem("auth");
+  window.location.href="index.html";
+}
+
+// Обработка на качени файлове
+uploader.onUploadComplete(fileInfo=>{
+  const url=fileInfo.cdnUrl;
+  const name=fileInfo.name;
+  const type=fileInfo.mimeType.split('/')[0];
+  let html='';
+  if(type==='video'){
+    html=`<div class="item"><video controls src="${url}"></video><p>${name}</p></div>`;
+  } else if(type==='image'){
+    html=`<div class="item"><img src="${url}" alt="${name}"><p>${name}</p></div>`;
+  } else{
+    html=`<div class="item"><a href="${url}" target="_blank">${name}</a></div>`;
+  }
+  mediaGrid.insertAdjacentHTML('beforeend',html);
+});
+</script>
+
+</body>
+</html>
