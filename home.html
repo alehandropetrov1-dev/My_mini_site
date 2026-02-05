@@ -10,8 +10,7 @@ h1,h2 { text-align:center; margin-bottom:20px; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:20px; }
 .item, .playlist { background:#1c1c1c; padding:10px; border-radius:12px; text-align:center; }
 iframe, img, video { width:100%; border-radius:10px; }
-button { display:block; margin:20px auto; padding:10px 15px; cursor:pointer; background:#4caf50; color:#fff; border:none; border-radius:6px; font-size:16px;}
-a { color:#4caf50; text-decoration:none; }
+button { display:block; margin:20px auto; padding:10px 15px; cursor:pointer; }
 </style>
 
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
@@ -19,18 +18,17 @@ a { color:#4caf50; text-decoration:none; }
 <body>
 
 <script>
-// Login с парола
 if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
 </script>
 
-<h1>🎬 Моите файлове и плейлисти</h1>
+<h1>🎬 Моите файлове</h1>
 
-<!-- Uploadcare за качване на файлове -->
+<!-- Uploadcare бутон за видео/снимки/документи -->
 <input type="hidden" role="uploadcare-uploader" id="uploader" data-public-key="demopublickey" data-multiple="true" />
 
 <div class="grid" id="mediaGrid"></div>
 
-<!-- Основен плейлист -->
+<!-- 🟢 Основен плейлист – може да го изтриеш и замениш с нов код -->
 <h2>📺 Основен плейлист</h2>
 <div class="grid">
   <div class="playlist">
@@ -41,32 +39,48 @@ if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
   </div>
 </div>
 
-<!-- Допълнителен плейлист Чалга -->
+<!-- 🎵 Допълнителен плейлист – Чалга хитове -->
 <h2>🎵 Чалга хитове</h2>
 <div class="grid">
+
   <div class="playlist">
     <iframe height="360" 
             src="https://www.youtube.com/embed?listType=playlist&list=PLzzpWpGIiFdpmpF9yaVQTTjBUgMBxitv-" 
             frameborder="0" allowfullscreen></iframe>
-    <p>Chalga Hit Mix</p>
+    <p>Chalga Hit Mix 2025</p>
   </div>
-</div>
 
-<!-- Други плейлисти (пример) -->
-<h2>🎶 Други популярни плейлисти</h2>
-<div class="grid">
   <div class="playlist">
     <iframe height="360" 
-            src="https://www.youtube.com/embed?listType=playlist&list=PLabc123XYZ" 
+            src="https://www.youtube.com/embed?listType=playlist&list=PLJ3U98LoPik_easedr8b6EtjkWjaBcaU0" 
             frameborder="0" allowfullscreen></iframe>
-    <p>Популярни хитове</p>
+    <p>Best Chalga Hits (Retro & New)</p>
   </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed/3yTaoUFfMZM" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Chalga Mix 2025 Non‑Stop</p>
+  </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed/aqnoOq-47m8" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>Chalga Pop‑Folk Mix 2025</p>
+  </div>
+
+  <div class="playlist">
+    <iframe height="360" 
+            src="https://www.youtube.com/embed/Q7_A6TwjKlI" 
+            frameborder="0" allowfullscreen></iframe>
+    <p>CHALGA POP FOLK MIX 2025</p>
+  </div>
+
 </div>
 
-<!-- Кратък шорткът към страницата с филми -->
-<button onclick="window.location.href='movies.html'">🎬 Филми</button>
-
-<!-- Logout -->
+<button onclick="window.location.href='pdfs.html'">📄 PDF Център</button>
 <button onclick="logout()">Изход</button>
 
 <script>
@@ -78,7 +92,7 @@ function logout(){
   window.location.href="index.html";
 }
 
-// Показване на качени файлове
+// Обработка на качени файлове
 uploader.onUploadComplete(fileInfo=>{
   const url=fileInfo.cdnUrl;
   const name=fileInfo.name;
@@ -97,3 +111,13 @@ uploader.onUploadComplete(fileInfo=>{
 
 </body>
 </html>
+</div> <!-- край на последния плейлист -->
+
+  <!-- 🔹 Бутон към филми -->
+  <button onclick="window.location.href='movies.html'">🎬 Филми</button>
+
+  <!-- PDF Център -->
+  <button onclick="window.location.href='pdfs.html'">📄 PDF Център</button>
+
+  <!-- Logout -->
+  <button onclick="logout()">Изход</button>
