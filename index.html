@@ -20,7 +20,6 @@
   <script>
     function login() {
       const password = document.getElementById("password").value;
-      // ← Променена парола на "azis"
       if (password === "azis") {
         localStorage.setItem("auth","true");
         window.location.href="home.html";
