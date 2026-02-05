@@ -19,18 +19,14 @@ button { display:block; margin:20px auto; padding:10px 15px; cursor:pointer; }
 <body>
 
 <script>
-// Проверка за login
 if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
 </script>
 
 <h1>🎬 Моите файлове</h1>
-
-<!-- Upload бутон -->
+<!-- Upload бутон за видео/снимки/документи -->
 <input type="hidden" role="uploadcare-uploader" id="uploader" data-public-key="demopublickey" data-multiple="true" />
 
-<div class="grid" id="mediaGrid">
-  <!-- Тук ще се показват файловете, които качваш -->
-</div>
+<div class="grid" id="mediaGrid"></div>
 
 <h2>📺 Плейлист</h2>
 <div class="grid">
@@ -42,6 +38,7 @@ if(localStorage.getItem("auth")!=="true"){window.location.href="index.html";}
   </div>
 </div>
 
+<button onclick="window.location.href='pdfs.html'">📄 PDF Център</button>
 <button onclick="logout()">Изход</button>
 
 <script>
