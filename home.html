@@ -48,22 +48,38 @@ iframe{
     background:black;
 }
 
+/* Общи стилове за бутоните */
+.next-btn, .exit-btn {
+    display: inline-block;
+    margin: 40px 10px 60px;
+    padding: 15px 40px;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
 /* NEXT PAGE бутон */
 .next-btn{
-    display:inline-block;
-    margin:40px 0 60px;
-    padding:15px 40px;
-    font-size:24px;
-    color:#fff;
     background:#ff0066;
-    border-radius:30px;
-    text-decoration:none;
     box-shadow:0 0 20px #ff0066;
-    transition:0.3s;
 }
 .next-btn:hover{
     background:#ff3399;
     box-shadow:0 0 30px #ff3399;
+}
+
+/* EXIT бутон */
+.exit-btn {
+    background: #444;
+    box-shadow: 0 0 15px #333;
+}
+.exit-btn:hover {
+    background: #666;
+    box-shadow: 0 0 25px #555;
+    color: #ff4d4d;
 }
 </style>
 </head>
@@ -79,27 +95,25 @@ iframe{
 <h1>🎶 Сайтът е за смелите 🔞</h1>
 
 <div class="videos">
-<!-- От предишни видеа -->
-<iframe src="https://www.youtube.com/embed/09R8_2nJtjg"></iframe>
-<iframe src="https://www.youtube.com/embed/OPf0YbXqDm0"></iframe>
-<iframe src="https://www.youtube.com/embed/60ItHLz5WEA"></iframe>
-<iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk"></iframe>
-<iframe src="https://www.youtube.com/embed/fLexgOxsZu0"></iframe>
-
-<iframe src="https://www.youtube.com/embed/YqeW9_5kURI"></iframe>
-<iframe src="https://www.youtube.com/embed/9jK-NcRmVcw"></iframe>
-<iframe src="https://www.youtube.com/embed/3tmd-ClpJxA"></iframe>
-<iframe src="https://www.youtube.com/embed/l482T0yNkeo"></iframe>
-
-<iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g"></iframe>
-<iframe src="https://www.youtube.com/embed/RgKAFK5djSk"></iframe>
-<iframe src="https://www.youtube.com/embed/ktvTqknDobU"></iframe>
-
-<!-- Добавен твоя плейлист -->
-<iframe src="https://www.youtube.com/embed/videoseries?list=PLUX8MhkBknbkRPbMS695R0UDAHZ0-I6hB" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/09R8_2nJtjg"></iframe>
+    <iframe src="https://www.youtube.com/embed/OPf0YbXqDm0"></iframe>
+    <iframe src="https://www.youtube.com/embed/60ItHLz5WEA"></iframe>
+    <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk"></iframe>
+    <iframe src="https://www.youtube.com/embed/fLexgOxsZu0"></iframe>
+    <iframe src="https://www.youtube.com/embed/YqeW9_5kURI"></iframe>
+    <iframe src="https://www.youtube.com/embed/9jK-NcRmVcw"></iframe>
+    <iframe src="https://www.youtube.com/embed/3tmd-ClpJxA"></iframe>
+    <iframe src="https://www.youtube.com/embed/l482T0yNkeo"></iframe>
+    <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g"></iframe>
+    <iframe src="https://www.youtube.com/embed/RgKAFK5djSk"></iframe>
+    <iframe src="https://www.youtube.com/embed/ktvTqknDobU"></iframe>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLUX8MhkBknbkRPbMS695R0UDAHZ0-I6hB" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-<a href="movie.html" class="next-btn">➡ NEXT HARRY PAGE 🎬</a>
+<div>
+    <a href="movie.html" class="next-btn">➡ NEXT HARRY PAGE 🎬</a>
+    <a href="index.html" class="exit-btn">❌ EXIT</a>
+</div>
 
 </body>
 </html>
